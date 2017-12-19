@@ -29,3 +29,21 @@ a.active{
 .today{
   color: red;
 }
+.height-10px{
+  padding-top: 10px;
+}
+input{
+  padding-left: 8px;
+  border-radius: 5px;
+  height: 25px;
+  width: 462px;
+}
+button{
+  border-radius: 5px;
+  height: 25px;
+  width: 462px;
+}
+.selected{
+  background-color: plum;
+  opacity: 0.6;
+}

@@ -1,6 +1,20 @@
 
 <div class="flex-container flex-center">
   <div id="calendar" class="flex-container flex-column flex-center">
+    <div>
+      <form [formGroup] = 'dateForm' class="flex-container flex-center">
+        <input type="text" placeholder="Start Date" formControlName="dateFrom" name="dateFrom">
+        <div class="width-25px"></div>
+        <input type="text" placeholder="End Date" formControlName="dateTo" name="dateTo">
+        <div class="width-25px"></div>
+        <button class="primary" (click)="reserve()">Reserve</button>
+      </form>
+    </div>
+    <div class="height-20px"></div>
+
+    <div *ngIf="isReserved">
+      {{isReserved}}
+    </div>
     <div class="alng flex-container flex-center-horz">
       <a class="fa fa-chevron-left" (click)="previousMonth()"></a>
       <a class="width-25px"></a>
@@ -10,18 +24,18 @@
     </div>
     <div class="height-20px"></div>
     <div class="alng flex-container">
-      <a class="calendar-days flex-container flex-center">S</a>
-      <a class="calendar-days flex-container flex-center">M</a>
-      <a class="calendar-days flex-container flex-center">T</a>
-      <a class="calendar-days flex-container flex-center">W</a>
-      <a class="calendar-days flex-container flex-center">T</a>
-      <a class="calendar-days flex-container flex-center">F</a>
-      <a class="calendar-days flex-container flex-center">S</a>
+      <div class="calendar-days flex-container flex-center">S</div>
+      <div class="calendar-days flex-container flex-center">M</div>
+      <div class="calendar-days flex-container flex-center">T</div>
+      <div class="calendar-days flex-container flex-center">W</div>
+      <div class="calendar-days flex-container flex-center">T</div>
+      <div class="calendar-days flex-container flex-center">F</div>
+      <div class="calendar-days flex-container flex-center">S</div>
     </div>
     <div class="flex-container flex-wrap">
-      <a *ngFor="let day of daysArr">
-        <a class="calendar-days flex-container flex-center" [ngClass] = "{'inactive':!day, 'today': todayCheck(day)}" >{{day?.date()}}</a>
-      </a>
+      <div *ngFor="let day of daysArr">
+        <div class="calendar-days flex-container flex-center" (click)="selectedDate(day)" [ngClass] = "{'inactive':!day, 'today': todayCheck(day), 'selected': isSelected(day)}" >{{day?.date()}}</div>
+      </div>
     </div>
   </div>
 </div>
