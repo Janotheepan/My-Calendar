@@ -7,6 +7,7 @@ a.active{
 }
 #calendar{
   width: 462px;
+  padding-left: 250px;
 }
 .alng{
   text-align: center;
@@ -18,6 +19,9 @@ a.active{
   border: 3px solid #c2c2c2;
 }
 .inactive{
+  opacity: 0.6;
+}
+.activeday{
   opacity: 0.6;
 }
 .height-20px{
@@ -38,10 +42,11 @@ input{
   height: 25px;
   width: 462px;
 }
-button{
+label{
   border-radius: 5px;
   height: 25px;
   width: 462px;
+  color: green;
 }
 .selected{
   background-color: plum;

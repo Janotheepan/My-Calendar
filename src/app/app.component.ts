@@ -7,6 +7,7 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
+import {isNull} from 'util';
 
 @Component({
   selector: 'app-root',
@@ -44,6 +45,12 @@ export class AppComponent implements OnInit {
     let dateFrom = this.dateForm.value.dateFrom;
     let dateTo = this.dateForm.value.dateTo;
     this.isReserved = 'Reserved from ' + (dateFrom) + ' to ' + (dateTo);
+  }
+  public active(day) {
+    let cday = this.dateForm.value;
+    if (cday < day) {
+      return false;
+    }
   }
   public createCalendar(month) {
     let firstDay = moment(month).startOf('M');

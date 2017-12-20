@@ -7,7 +7,8 @@
         <div class="width-25px"></div>
         <input type="text" placeholder="End Date" formControlName="dateTo" name="dateTo">
         <div class="width-25px"></div>
-        <button class="primary" (click)="reserve()">Reserve</button>
+        <div class="height-20px"></div>
+        <label class="primary" (click)="reserve()">Reserve</label>
       </form>
     </div>
     <div class="height-20px"></div>
@@ -24,18 +25,17 @@
     </div>
     <div class="height-20px"></div>
     <div class="alng flex-container">
-      <div class="calendar-days flex-container flex-center">S</div>
-      <div class="calendar-days flex-container flex-center">M</div>
-      <div class="calendar-days flex-container flex-center">T</div>
-      <div class="calendar-days flex-container flex-center">W</div>
-      <div class="calendar-days flex-container flex-center">T</div>
-      <div class="calendar-days flex-container flex-center">F</div>
-      <div class="calendar-days flex-container flex-center">S</div>
+      <button class="calendar-days flex-container flex-center">Sun</button>
+      <button class="calendar-days flex-container flex-center">Mon</button>
+      <button class="calendar-days flex-container flex-center">Tue</button>
+      <button class="calendar-days flex-container flex-center">Wed</button>
+      <button class="calendar-days flex-container flex-center">Thu</button>
+      <button class="calendar-days flex-container flex-center">Fri</button>
+      <button class="calendar-days flex-container flex-center">Sat</button>
     </div>
-    <div class="flex-container flex-wrap">
-      <div *ngFor="let day of daysArr">
-        <div class="calendar-days flex-container flex-center" (click)="selectedDate(day)" [ngClass] = "{'inactive':!day, 'today': todayCheck(day), 'selected': isSelected(day)}" >{{day?.date()}}</div>
-      </div>
-    </div>
+    <div class="height-20px"></div>
+    <a class="flex-container flex-wrap" *ngFor="let day of daysArr">
+        <button class="calendar-days flex-container flex-center" (click)="selectedDate(day)" [ngClass] = "{'inactive':!day, 'today': todayCheck(day), 'selected': isSelected(day)}" >{{day?.date()}}</button>
+      </a>
   </div>
 </div>
