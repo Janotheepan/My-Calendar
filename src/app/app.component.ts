@@ -42,19 +42,13 @@ export class AppComponent implements OnInit {
     if (!this.dateForm.valid) {
       return;
     }
-    let dateFrom = this.dateForm.value.dateFrom;
-    let dateTo = this.dateForm.value.dateTo;
+    const dateFrom = this.dateForm.value.dateFrom;
+    const dateTo = this.dateForm.value.dateTo;
     this.isReserved = 'Reserved from ' + (dateFrom) + ' to ' + (dateTo);
   }
-  public active(day) {
-    let cday = this.dateForm.value;
-    if (cday < day) {
-      return false;
-    }
-  }
   public createCalendar(month) {
-    let firstDay = moment(month).startOf('M');
-    let days = Array.apply(null, { length: month.daysInMonth()})
+    const firstDay = moment(month).startOf('M');
+    const days = Array.apply(null, { length: month.daysInMonth()})
       .map(Number.call, Number)
       .map((n) => {
         return moment(firstDay).add(n, 'd');
@@ -76,8 +70,8 @@ export class AppComponent implements OnInit {
     if (!day) {
       return false;
     }
-    let dateFrom = moment(this.dateForm.value.dateFrom, 'MM/DD/YYYY');
-    let dateTo = moment(this.dateForm.value.dateTo, 'MM/DD/YYYY');
+    const dateFrom = moment(this.dateForm.value.dateFrom, 'MM/DD/YYYY');
+    const dateTo = moment(this.dateForm.value.dateTo, 'MM/DD/YYYY');
     if (this.dateForm.valid) {
       return dateFrom.isSameOrBefore(day) && dateTo.isSameOrAfter(day);
     }
@@ -86,7 +80,7 @@ export class AppComponent implements OnInit {
     }
     }
     public selectedDate(day) {
-    let dayFormatted = day.format('MM/DD/YYYY');
+    const dayFormatted = day.format('MM/DD/YYYY');
     if (this.dateForm.valid) {
       this.dateForm.setValue({dateFrom: null, dateTo: null});
     return;

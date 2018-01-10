@@ -19,7 +19,7 @@ a.active{
   border: 3px solid #c2c2c2;
 }
 .inactive{
-  opacity: 0.6;
+  opacity: 0;
 }
 .activeday{
   opacity: 0.6;
@@ -49,6 +49,6 @@ label{
   color: green;
 }
 .selected{
-  background-color: plum;
+  background-color: green;
   opacity: 0.6;
 }
